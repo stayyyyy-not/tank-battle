@@ -1,0 +1,10 @@
+# 测试与临时产物
+_shots/
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 对话导出
+20*-htmlgithub.txt

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#07090d" />
+  <meta name="description" content="纯 HTML5 Canvas 编写的经典坦克大战游戏，无需任何依赖。" />
+  <title>坦克大战 · Tank Battle</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="brand-text">
+          <h1>坦克大战 <em>TANK BATTLE</em></h1>
+          <p>守住基地，消灭所有敌军</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="soundBtn" class="icon-btn" type="button" title="声音 (M)" aria-label="切换声音">🔊</button>
+        <button id="pauseBtn" class="icon-btn" type="button" title="暂停 (P)" aria-label="暂停游戏">⏸</button>
+        <button id="restartBtn" class="icon-btn" type="button" title="重新开始" aria-label="重新开始">⟳</button>
+      </div>
+    </header>
+
+    <main class="game-shell">
+      <div class="stage">
+        <canvas id="game" width="480" height="480" aria-label="坦克大战游戏画面"></canvas>
+
+        <div id="overlay" class="overlay">
+          <div class="overlay-card">
+            <div class="overlay-kicker" id="overlayKicker">TANK BATTLE</div>
+            <h2 id="overlayTitle">坦克大战</h2>
+            <p id="overlayText">守住基地，消灭所有敌军。</p>
+            <button id="overlayBtn" class="primary-btn" type="button">开始战斗</button>
+            <p class="overlay-hint" id="overlayHint">按 Enter 开始</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="stat">
+          <span class="label">关卡 STAGE</span>
+          <strong id="hudLevel">1</strong>
+        </div>
+        <div class="stat">
+          <span class="label">分数 SCORE</span>
+          <strong id="hudScore">0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">最高 HIGH</span>
+          <strong id="hudHigh">0</strong>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="stat block">
+          <span class="label">生命 LIVES</span>
+          <div id="hudLives" class="icons"></div>
+        </div>
+        <div class="stat block">
+          <span class="label">强化 POWER</span>
+          <div id="hudUpgrade" class="icons"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="stat">
+          <span class="label">剩余敌军</span>
+          <strong id="hudEnemies" class="enemies-count">0</strong>
+        </div>
+
+        <div class="legend">
+          <span><i class="dot basic"></i>普通 100</span>
+          <span><i class="dot fast"></i>快速 200</span>
+          <span><i class="dot power"></i>火力 300</span>
+          <span><i class="dot armor"></i>重甲 400</span>
+        </div>
+      </aside>
+    </main>
+
+    <section class="touch" id="touchControls" aria-label="触屏操作">
+      <div class="dpad">
+        <button type="button" data-dir="up" aria-label="上">▲</button>
+        <button type="button" data-dir="left" aria-label="左">◀</button>
+        <button type="button" data-dir="down" aria-label="下">▼</button>
+        <button type="button" data-dir="right" aria-label="右">▶</button>
+      </div>
+      <button id="fireBtn" class="fire" type="button" aria-label="发射">发射</button>
+    </section>
+
+    <footer class="help">
+      <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / <kbd>方向键</kbd> 移动</span>
+      <span><kbd>空格</kbd> / <kbd>J</kbd> 射击</span>
+      <span><kbd>P</kbd> 暂停</span>
+      <span><kbd>M</kbd> 静音</span>
+      <span class="tip">打掉闪光的敌人会掉落道具</span>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
